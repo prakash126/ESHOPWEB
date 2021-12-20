@@ -1,0 +1,46 @@
+<div id="box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-3"></div>
+            <div class="col-sm-12 col-lg-6">
+            
+    
+                    
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2" for="">UserName</label>
+                            <input class="col-sm-10 col-lg-10" type="text" value="{{username}}" [(ngModel)]="username" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2" for="">Email</label>
+                            <input class="col-sm-10 col-lg-10" type="text" value="{{email}}" [(ngModel)]="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2" for="">Contact No:-</label>
+                            <input class="col-sm-10 col-lg-10" type="text" value="{{mobile}}" [(ngModel)]="mobile" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2" for="">Address</label>
+                            <input class="col-sm-10 col-lg-10" type="text" value="{{Address}}" [(ngModel)]="Address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="">Pincode</label>
+                            <input class="col-sm-10" type="text" value="{{pincode}}" [(ngModel)]="pincode" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="">State</label>
+                            <input class="col-sm-10" type="text" value="{{state}}" [(ngModel)]="state" class="form-control">
+                        </div>                
+                    
+            
+            <br>
+            <!-- <input type="button" value="Edit" (click)="funEditProfile()" class="btn btn-lg btn-danger form-control"> -->
+            <button (click)="funEditProfile()" class="btn btn-lg btn-primary form-control">Update Your Profile</button>
+        </div>
+        </div>
+    </div>
+    
+    <!-- {{data | json}} -->
+    
+    
+</div>

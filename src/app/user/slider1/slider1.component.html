@@ -1,0 +1,81 @@
+<!-- <div>
+    <div class="divouter">
+      <input
+        type="button"
+        value=" << "
+        class="btn btn-secondary"
+        (click)="funsliderleft()"
+      />
+      &nbsp;&nbsp;
+      <input
+        type="button"
+        value=" >> "
+        class="btn btn-secondary"
+        (click)="funsliderright()"
+        style="float: right;"
+      />
+      <div class="inner" id="divInner">
+        <div class="cartdiv" *ngFor="let x of silder1data">
+          <img
+            src="../../../assets/product_images/{{x.pimage[0]}}"
+            width="200px"
+            height="150px"
+            style="border: 0.1px solid rgb(209, 202, 202); margin-right: 5px;border-radius: 5px;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offer">
+        <img src="../../../assets/offerimg/offer11.png" alt="">
+        <img src="../../../assets/offerimg/offer12.png" alt="">
+        <img src="../../../assets/offerimg/offer7.png" alt="">
+        <img src="../../../assets/offerimg/offer14.png" alt="">
+        <img src="../../../assets/offerimg/offer15.png" alt="">
+        <img src="../../../assets/offerimg/offer16.png" alt="">
+  </div>
+ -->
+
+ <div>
+  <!-- <h4>New Arrivals</h4> -->
+  <!-- <img src="../../../assets/images/slider/deals.jpg" width="100%"> -->
+ <hr>
+ <div class="divouter">
+     <!-- <input type="button" value="" class="btn btn-primary" > -->
+
+     <div class="row">
+         
+         <div class="col-md-1" id="lefticon">
+             <img src="../../../assets/left.png" width="30px" height="30px" (click)="funsliderleft()">
+         </div>
+         <div class="col-md w-120">
+             <div class="inner" id="divInner">
+                 <div class="cartdiv" *ngFor="let x of silder1data" style="border: 1px solid rgb(245, 241, 241);" [routerLink]="['./productinfo',{productid:x._id}]">
+                     <img src="../../../assets//product_images/{{x.pimage[0]}}" width="200px" height="150px" style="margin-right: 5px;border-radius: 5px;">
+                    <h6 style="text-align: center;"> {{x.pname}}</h6>
+                    <h6 style="color: green; text-align: center; opacity: 0.7;">Now {{x.newprice | currency: "INR"}}</h6>
+                 </div>
+             </div>
+         </div>
+         <div class="col-md-1" id="righticon">
+             <img src="../../../assets/right.png" width="30px" height="30px" (click)="funsliderright()" >
+         </div>
+     </div>
+    
+ </div>
+ <!-- {{slider_data}} -->
+</div>
+
+<!-- advertisement code start -->
+<div class="row">
+  <div class="col-md-4">
+      <img src="../../../assets/offerimg/offer26.jpg" width="100%" height="250px" style="border-radius: 5px;">
+  </div>
+  <div class="col-md-4">
+      <img src="../../../assets/offerimg/offer23.jpg" width="100%" height="250px" style="border-radius: 5px;">
+  </div>
+  <div class="col-md-4">
+      <img src="../../../assets/offerimg/offer22.jpg" width="100%" height="250px" style="border-radius: 5px;">
+  </div>
+ 
+</div>

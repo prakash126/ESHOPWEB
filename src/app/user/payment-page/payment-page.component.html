@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <!-- <button class="float-right" mat-raised-button color="primary" (click)="funOrderStatus()" id="cart">
+        <mat-icon>shopping_cart</mat-icon>&nbsp;{{name}}
+    </button> -->
+    <div class="row">
+        <div class="col-lg-5 col-sm-12">
+            <div class="text-center m-4" *ngIf="pay_success">
+                
+                <img src="../../../assets/payment/success.png" alt="" srcset="" width="400px" height="300px">
+                <h3 >Payment Successfull</h3>  <br>
+                <h4>Your Transaction id: {{paymentid[1]}}</h4>
+                <br>
+                <input type="button" value="GoBack" class="btn btn-lg btn-primary p-3" routerLink="/us">
+            </div>
+            <div class="text-center m-4" *ngIf="!pay_success">
+                
+                <img src="../../../assets/payment/pfailed.png" alt="" srcset="" width="400px" height="300px">
+                <br>
+                <input type="button" value="GoBack" class="btn btn-lg btn-primary p-3" routerLink="/us">
+            </div>
+        </div>
+        <!-- <div class="col-lg-1"></div> -->
+        <div class="col-lg-6 col-sm-12" style="margin-top: 20px;margin-right: 5px;">
+            <mat-form-field style="width: 100%; margin-bottom: 50px;">
+                <mat-label>Select Product</mat-label>
+                <mat-select [(ngModel)]="orderDataId" (selectionChange)="findOderById()">
+                    <mat-option *ngFor="let orDt of orderData" value="{{orDt._id}}">
+                        <ng-container *ngFor="let prDt of orDt.proddata">
+                            {{prDt.pname}}
+                        </ng-container>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div *ngIf="showBar">
+                <!-- <h3>{{ name}}</h3> -->
+                <!-- <ng-container *ngFor="let dt of orderData"> -->
+                      <ng-container *ngFor="let item of counts;let i = index" style="margin-top: 100px;">
+                        <!-- <h1>{{orderStatus}}</h1> -->
+                        <span class="circle-desc text-muted my-2" [class.circle-desc-active]="orderStatus == item">{{ item }}</span>
+                        <span class="circles" [class.active]="orderStatus == item"></span>
+                        <span class="bar" *ngIf="(i != counts.length-1)"></span>
+                      </ng-container>
+
+                <!-- </ng-container> -->
+                <div style="margin-top: 60px; background-color: rgb(231, 229, 225);">
+                    <div style="padding: 100px;">
+                        <span class="text-bolder">Product Name: </span><span class="text-muted">{{orderDataByID.proddata[0].pname}}</span><br>
+                        <span class="text-bolder">Product Price: </span><span class="text-muted">{{orderDataByID.proddata[0].newprice | currency:'INR'}}</span><br>
+                        <span class="text-bolder">Your Email: </span><span class="text-muted">{{orderDataByID.useremail}}</span><br>
+                        <span class="text-bolder">Your Order Status: </span><span class="text-muted">{{orderDataByID.orderStatus}}</span><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h3>{{ name}}</h3>
+
+ <div class="container">
+ <span *ngFor="let item of counts;let i = index">
+   <span class="circle-desc" [class.circle-desc-active]="orderStatus == item">{{ item }}</span>
+   <span class="circles" [class.active]="orderStatus == item"></span>
+   <span class="bar" *ngIf="(i != counts.length-1)"></span>
+ </span>
+ </div> -->
+<!-- {{tokdata | json}} -->

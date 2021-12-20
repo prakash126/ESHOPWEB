@@ -1,0 +1,48 @@
+<br>
+<mat-form-field style="width: 100%;">
+<input type="text" autocomplete="off"  placeholder="Brand Name" 
+matInput [(ngModel)]="txtbname">
+</mat-form-field>
+<br>
+<button mat-raised-button  color="primary" (click)="funInsBrand()">Insert Catrgory </button>
+
+
+<br><br>
+<table class='table table-hover'>
+    <th>Object Id</th>
+    <th>Brand Name</th>
+    <th>Active Status</th>
+    <th>Operations</th>
+    <tr *ngFor="let bdata of data_category | paginate:{itemsPerPage:3,currentPage:cp}">
+        
+            <ng-container *ngIf="temp!=bdata._id;else elsetemp">
+                <td>{{bdata._id}}</td>
+        
+                <td>{{bdata.bname}}</td>
+                <td>
+                <span *ngIf="bdata.active==1">Active</span>
+                <span *ngIf="bdata.active==0">InActive</span>
+                </td>
+                <td>
+                    <input type="button" value="Update" class="btn btn-success" (click)="funUpdate(bdata)">
+                   
+                </td>
+            </ng-container>
+    </tr>
+    <ng-template #elsetemp>
+        <td></td>
+        <td><input type="text" style="width:150px" 
+           class="form-control" [(ngModel)]="txtbdatanew"></td>
+        <td><select class="form-control" [(ngModel)]="drpactive">
+           <option value="1">Active</option>
+           <option value="0">Inactive</option>
+        </select></td>
+        <td>
+            <input type="button" value="Save" (click)="funBrandsave()" class="btn btn-info">
+            &nbsp;&nbsp;
+            <input type="button" value="Close" class="btn btn-secondary" (click)="temp=0">
+        </td>
+       </ng-template>
+</table>
+
+<pagination-controls (pageChange)="cp=$event"></pagination-controls>

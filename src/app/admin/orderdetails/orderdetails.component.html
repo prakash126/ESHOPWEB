@@ -1,0 +1,60 @@
+<h1 class="text-center text-info">Oder Details</h1>
+<hr>
+
+<div class="container">
+    <table class="table table-hover mt-5">
+        <!-- displayedColumns: string[]=['username','email','orderStatus','city','productName','productPrice','quantity'] -->
+
+        <thead>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Order status</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Purchased Qty</th>
+            <th>Total Quantity</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let orDt of orderDataArr">
+                <ng-container *ngIf="temp!=orDt.id;else elsetemp">
+                    <td>{{orDt.username}}</td>
+                    <td>{{orDt.useremail}}</td>
+                    <td>{{orDt.orderStatus | titlecase}}</td>
+                    <td>{{orDt.pname | slice:0:29}}</td>
+                    <td>{{orDt.price | currency:'INR'}}</td>
+                    <td>{{orDt.userqty}}</td>
+                    <td>{{orDt.quantity}}</td>
+                    <td>
+                        <button mat-mini-fab color="primary" style="outline: none;" (click)="funEditOrderStatus(orDt)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elsetemp>
+        <td></td>
+        <td></td>
+        <td>
+            <select class="form-control" [(ngModel)]="statusOption">
+                <option *ngFor="let op of statusOptions" value="{{op}}">
+                   {{op}}
+                </option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <button mat-mini-fab color="accent" style="outline: none;background-color: green;" (click)="funSave()">
+                <i class="fa fa-save"></i>
+            </button>
+            &nbsp;&nbsp;
+            <button mat-mini-fab color="warn" style="outline: none;" (click)="temp=0">
+                <i class="fa fa-close"></i>
+            </button>
+        </td>
+    </ng-template>
+</div>

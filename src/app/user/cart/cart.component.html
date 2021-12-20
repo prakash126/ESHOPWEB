@@ -1,0 +1,210 @@
+
+
+<div class="container-fluid" *ngIf="this.emptycart!=0">
+    <div class="row ">
+        <div class="col-lg-2 col-md-2 col-sm-2">
+                <img src="../../../assets/offerimg/offer11.png" class="img-fluid mt-5" style="height: 250px;">
+                <img src="../../../assets/offerimg/offer12.png" class="img-fluid mt-5" style="height: 250px;">
+                <img src="../../../assets/offerimg/offer14.png" class="img-fluid mt-5" style="height: 250px;">
+                
+            </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <h4 *ngIf="emptycart!=0" style="padding: 10px;">Your Cart Details:</h4>
+
+                    <div *ngFor="let dt of data; let ind = index">
+                
+
+                        <div class="row" id="box">
+
+                            <!-- fst column start-->
+                                <div class="col-sm-6 col-md-3 col-lg-4">
+                                    <img style="width: 220px; height: 250px;" src="../../../assets/product_images/{{dt.pimage[0]}}" class="img-fluid">
+                                </div>
+                            <!-- fst column end-->
+
+                            <!-- second column start-->
+                                    <div class="col-sm-6 col-md-3 col-lg-4">
+                                        <h4>{{dt.pname | titlecase}}</h4> 
+
+                                        <h5 style="color: rgb(230, 75, 75);">{{dt.newprice | currency: "INR"}} &nbsp;
+                                            <span  style="color: black; opacity: 0.5; font-size: 18px;">
+                                            <s>{{dt.oldprice | currency :"INR"}}</s>  
+                                        </span></h5>
+
+                                        <!-- <span [ngStyle]="{color:dt.pcolor, backgroundColor:dt.pcolor}">{{dt.pcolor}}</span>
+
+                                        <h5>Size:&nbsp;{{dt.size}}</h5> -->
+                                        <div class="row">
+                                            <div class="col-sm-1">
+                                            <p id="rate">{{dt.rating}}&nbsp;<i class="fa fa-star"></i></p>
+                                            </div>&nbsp;&nbsp;&nbsp;     
+                                            <div class="col-sm-2">
+                                            <img src="../../../assets/fk.png" 
+                                            width="120px" height="20px" style="padding-left: 25px; border-radius: 10px;" >
+                                            </div>
+                                        </div>
+
+                                        <!-- //////////////////// product quantity code //////////// -->
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <img src="../../../assets/down.png" width="30px" id="down"
+                                                (click)="fundown(ind)">
+                                            </div>
+                                            
+
+                                            <div class="col-md-1">
+                                            <h4>
+                                                <input id="txt{{ ind }}" type="text" value="{{ dt.uqty }}" readonly style=" width:30px; text-align: center;
+                                                 outline: none;border:none; font-size: 20px; font-weight: 500;">
+                                                </h4>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <img src="../../../assets/up.png" width="30px" id="up"
+                                                (click)="funup(ind)" >
+                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <strong style="color: rgb(233, 80, 233); display: none;" id="strong{{ind}}">No more Products</strong>
+                                            
+                                        </div>
+                                        
+
+                                        <!-- //////////////////// product quantity code end//////////// -->
+
+                                            <!-- <div class="row">
+                                                <div class="col-sm-8 col-md-6 col-lg-4"> 
+                                            <button mat-raised-button color="accent" id="order">PLACE ORDER</button>
+                                            </div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-8 col-md-6 col-lg-5">
+                                            <button mat-raised-button color="accent" id="remove" (click)="funRemoveItem(ind)">REMOVE</button>
+                                            </div>
+                                            </div>
+
+                                    </div>           -->
+
+                            <!-- second column start-->
+                        </div>
+                        <!--////////////// Price details start //////////////////////-->
+                        <div class="col-sm-7 col-md-4 col-lg-4">
+                        
+                            <h4 style="color: rgba(0, 0, 0, 0.5); font-size: 18px; font-weight: bold;">PRICE DETAILS</h4> 
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p style="color: black; font-size: 18px;">Price</p> 
+                                </div>
+
+                                <div class="col-md-6">
+                                    <p style="color: black; font-size: 18px;">
+                                        {{dt.newprice | currency: "INR"}} 
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p style="color: black; font-size: 18px;">Delivery Fee</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p style="color: green; font-weight: 500;">FREE</p>
+                                    </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <h6 style="color: black;font-size: 18px; font-weight: 600;">
+                                    Total Amount
+                                </h6>
+                                
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                        <h6>
+                                            <span  style="color: black;font-size: 20px; font-weight: 600;">
+                                                {{dt.newprice * dt.uqty | currency: "INR"}}      
+                                        </span>
+                                    </h6>
+                                    
+                                    </div>
+                            </div>
+
+                            <hr>
+                            <!-- delete button start-->
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-4"></div>
+                                    <div class="col-md-6 col-sm-12 col-lg-4">
+                                        <button mat-raised-button color="accent" id="delete" (click)="funRemoveItem(ind,dt)">
+                                        REMOVE ITEM
+                                        </button>
+                                    </div>
+                                
+                                </div>
+                            <!-- delete button end -->
+                        
+                            </div>
+                                <!--////////////// Price details end //////////////////////-->
+                         </div>
+                    </div>
+                    <div style="float: right; margin-right: 250px;" *ngIf="this.emptycart!=0">
+                        <h3 style="color: green;">Grand Total: {{total | currency: 'INR'}}&nbsp;&nbsp;
+                            <button mat-raised-button color="primary" style="outline: none;" (click)="funProceedToPay()">Proceed To Pay</button>
+                        </h3>
+                        
+                    </div>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2  mt-5">
+            
+                <img src="../../../assets/offerimg/offer15.png" class="img-fluid " style="height: 250px;" >
+                
+                <img src="../../../assets/offerimg/offer16.png"class="img-fluid mt-5" style="height: 250px;">
+                <img src="../../../assets/offerimg/offer4.png" class="img-fluid mt-5" style="height: 250px;">
+                
+            </div>
+    </div>
+</div>    
+
+<div class="container">
+    
+    <div *ngIf="this.emptycart==0">
+        <h3 style="color: rgb(230, 41, 41);">Your Cart is Empty</h3>
+    <div class="col-lg-4"></div>
+    
+     <div class="col-lg-7 col-md-6 col-sm-12">
+        
+    
+           
+                <img src="../../../assets/empty32.png" width="500px" height="500px" class="img-fluid img-center" alt="" style="margin-left: 200px;">      
+                <br><br>
+                <button mat-raised-button color="accent"  [routerLink]="['/us']">Go To Dashboard</button>     
+            </div>
+        <div class="col-lg-1"></div>
+    </div>
+    </div>
+
+
+      <!-- <table class="table table-striped container mt-5" style="text-align: center;">
+        <th>BRAND</th>
+        <th>PRICE</th>
+        <th>QUANTITY</th>
+        <th>USER_QUANTITY</th>
+        <tr *ngFor="let x of addCartData">
+          <td>{{x.Brand}}</td>
+          <td>{{x.Newprice}}</td>
+          <td>{{x.Quantity}}</td>
+          <td>{{x.uqty}}</td>
+        </tr>
+      </table> 
+      <br><br><br><br><br><br><br><br><br><br> -->
+
+<!-- //////////////////////  model -->
+
+    
+
+  
+
+<!-- {{addCartData | json}} -->

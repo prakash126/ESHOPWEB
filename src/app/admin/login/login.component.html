@@ -1,0 +1,15 @@
+<div class="container"> 
+    <form [formGroup]="validation_obj.myform" (ngSubmit)="funlogin()">
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput autocomplete="off" formControlName="uname" name="uname">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput autocomplete="off" formControlName="pwd" placeholder="password" name="pwd">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" style="width: 150px;" (click)="funlogin()">
+        Login
+    </button>
+</form>
+</div>

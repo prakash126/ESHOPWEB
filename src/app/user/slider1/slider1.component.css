@@ -1,0 +1,80 @@
+/* .divouter {
+    padding-top: 5px;
+    height: 200px;
+    width: 100%;
+    border: 2px solid rgb(231, 222, 222);
+    overflow: hidden;
+  }
+  .cartdiv {
+    float: left;
+  }
+  .inner {
+    width: 120%;
+    position: relative;
+    left: 0px;
+  }
+
+  .offer{
+      height: 200px;
+      width: 100%;
+      border: 2px solid rgb(231, 222, 222);
+      margin: 10px;
+      
+  }
+  
+  .offer img{
+      width: 249px;
+      height: 200px;
+      margin-right: 3.6px;
+
+  } */
+
+.divouter {
+  margin-left: -50px;
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+
+  /* border: 5px solid orangered; */
+}
+
+.cartdiv {
+  float: left;
+}
+
+.inner {
+  width: 120%;
+  position: relative;
+  left: 0px;
+}
+h4 {
+  padding-left: 30px;
+}
+#lefticon {
+  padding-left: 85px;
+  margin-left: -15px;
+  padding-top: 65px;
+  float: left;
+  position: relative;
+  /* box-shadow: 1px 1px 5px royalblue;   */
+  left: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+#righticon {
+  margin-right: -70px;
+  padding-top: 65px;
+  float: right;
+  position: relative;
+  /* box-shadow: 1px 1px 5px royalblue; */
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+#demo {
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+}

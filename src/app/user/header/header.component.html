@@ -1,0 +1,258 @@
+
+    <!-- <div class="row headerstyle">
+        <div class="col-sm-2">
+            <img src="../../../assets/logo.png" alt="" width="150px" height="70px">
+        </div>
+        <div class="col-3">
+            <input type="search" placeholder="Search_here....." name="" id="" class="form-control" style="margin-top: 15px;">
+        </div>
+    </div> -->
+    <!-- <div class="container-fluid">
+        <div class="row headerstyle">
+            <div class="col-sm-2">
+                <img src="../../../assets/logo4.png" alt="" width="150px" height="60px">
+            </div>
+            <div class="col-sm-12 col-md-5">
+                 <div class="input-group" style="margin-top: 10px;">
+                    <input type="search" placeholder="Search_here....." name="" id="" class="form-control">
+                 <div class="input-group-append">
+                    <span class="input-group-text">
+                        <mat-icon>search</mat-icon>
+                    </span>
+                </div>
+                </div> 
+            </div>
+        </div>
+        </div> -->
+        <div class="container-fluid">
+            
+            <div class="row headerstyles">
+                
+                <div class="col-sm-2 col-lg-2">
+                    <img src="../../../assets/logo4.png" alt="logo" id="logo" [routerLink]="['/us']" width="150px" height="60px">
+                </div>
+            
+                
+                <div class="col-sm-5 col-lg-5">
+                    <div class="input-group" style="margin-top: 15px;">
+                    <input type="text" class="form-control" [(ngModel)]="txtsearch"  style="height: 40px;" placeholder="Search for products,brands and more" (keyup)="funsearch()">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <mat-icon style="text-align: center; width: 40px; cursor: pointer;">search</mat-icon>
+                        </span>
+                    </div>
+                    </div>
+                   
+                </div>
+                
+            
+                <div class="col-sm-4 col-lg-5" >
+               
+                    <div class="row">
+                        
+                        <div class="col-md-3 col-lg-4" *ngIf="flag==0">
+                            <button class="lg" (click)="flogin()">Login </button> 
+                        </div>
+                        <div class="col-md-3 col-lg-4" *ngIf="flag==1">
+                            <button class="lg" (click)="flogout()">Logout </button> 
+                        </div>
+                        <div class="col-md-3 col-lg-4">
+                            <div style="
+                                width: 25px;
+                                height: 25px;
+                                background-color:whitesmoke;
+                                border-radius: 50%;
+                               position: absolute;
+                               top: 10px;
+                               color: rgb(245, 97, 97);
+                               text-align: center;
+                               font-weight: bold;
+                            " *ngIf="flag1==false">{{total_cart_items}}</div>
+                            <i class="fa fa-shopping-cart" style="font-weight: bolder;" [routerLink]="['cart']" style="outline: none"></i>&nbsp;<span style="margin-right: 25px;font-size: 20px;font-weight: bold;color: white;">Cart</span>
+                        
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- <div class="dropdown">
+                                <h6 class="dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown"
+                                 aria-haspopup="true" aria-expanded="false">
+                                 More
+                                </h6>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                              </div> -->
+                               
+                                <!-- <div class="dropup">
+                                    <i class="fa fa-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="z-index: 2000;">
+                                   
+                                        <ul class="dropdown-menu">
+                                        <li><a href="#">HTML</a></li>
+                                        <li><a href="#">CSS</a></li>
+                                        
+                                        </ul>
+                                    </i>
+                                    <span *ngIf="loginuser==1" style="color: whitesmoke;">{{loginusername | uppercase}}</span>
+                                 </div> -->
+                       
+                        
+                                 <div class="btn-group dropright" style="width: 50px; margin-top: 20px; color: wheat; cursor: pointer;">
+                                   
+                                    <i class="fa fa-user dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <!-- <span class="sr-only">Toggle Dropdown</span> -->
+                                    </i>
+                                    <ul class="dropdown-menu" style="text-align: center;cursor: pointer;background-color:rgb(245, 239, 239);text-decoration: underline;color: rgb(117, 52, 221);">
+                                        <li><span [routerLink]="['profile']">My Profile</span></li>
+                                        <li><span [routerLink]="['myorder']">My Order</span></li>
+                                        
+                                    </ul>
+                                  </div>
+                                  <p *ngIf="loginuser==1" style="color: whitesmoke;">{{loginusername | uppercase | slice:0:8}}</p>
+                        <!-- &nbsp;&nbsp; -->
+                        
+                    
+                   
+                        </div>
+                       
+                        
+                    </div>
+                   
+                </div>
+            
+            
+            </div>
+            <!--Releted to search bar-->
+            <div class="row">
+                <div class="col-sm-2"></div>
+                    <div class="col-sm-5">
+                    <div
+                        
+                        *ngIf="searchtemp"
+                        style="
+                        width: 602px;
+                        position: absolute;
+                        z-index: 2000;
+                        background-color: white;
+                        padding: 20px;
+                        min-height: 50px;
+                        cursor: pointer;
+                        box-shadow: 0px 3px 5px black;
+                        border-radius: 0px 0px 3px 3px;
+                        "
+                    >
+                        <li *ngFor="let dt of searchdata" (click)="fun_search_click(dt)">
+                        {{ dt.pname }}
+                        </li>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Modal -->
+
+            <div id="modellogin" class="modal" role="dialog" tabindex="-1" style="margin-top: 100px;">
+                <div class="modal-dialog modal-login" role="document">
+                    
+                        <div class="modal-content">
+                            <div style="background-color: lightgray;">
+                            <div class="modal-header">
+                                <div class="avatar">
+                                    <img src="../../../assets/avatar.png" alt="Avatar">
+                                </div>				
+                                <h4 class="modal-title">Member Login</h4>	
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span (click)="funcloselogin('modellogin')">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                  
+                                    <div class="form-group">
+                                        <input *ngIf="!showOtpFiled" type="text" placeholder="Enter Email..." name="temail" [(ngModel)]="temail" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input *ngIf="showOtpFiled" type="text" placeholder="Enter Otp..." name="txtotp" [(ngModel)]="txtotp" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input *ngIf="showOtpFiled" type="text" placeholder="Enter password to update..." name="txtpwd" [(ngModel)]="txtpwd" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input *ngIf="showFiled" type="text" placeholder="Enter password..." name="txtpwd" [(ngModel)]="txtpwd" class="form-control">
+                                    </div>        
+                                    <div class="form-group">
+                                        <button *ngIf="showFiled" type="submit" class="btn btn-primary btn-lg btn-block login-btn" (click)="funlogin()">Login</button>                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <button *ngIf="showUpPwdBtn" type="submit" class="btn btn-primary btn-lg btn-block login-btn" (click)="getOtp()">Get otp</button> 
+                                        <button *ngIf="showPwdMatchBtn" type="submit" class="btn btn-primary btn-lg btn-block login-btn" (click)="matchOtpAndUpdatePasssword()">Update Password</button>                                                                             
+                                    </div>
+                                    <h6 *ngIf="showFiled" class="text-center text-muted">Forget password ? <a class="text-primary" style="cursor: pointer;" (click)="forgetPwd()">Click here</a></h6>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary btn-lg btn-block login-btn" (click)="funOpenReg()">SignUp</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+            
+            
+            <div id="modelreg" class="modal" role="dialog" tabindex="-1" style="margin-top: 20px;">
+                <div class="modal-dialog modal-login" role="document">
+                    
+                        <div class="modal-content">
+                            <div style="background-color: lightgray;">
+                            <div class="modal-header">
+                                <div class="avatar">
+                                    <img src="../../../assets/avatar.png" alt="Avatar">
+                                </div>				
+                                <h4 class="modal-title">Member Login</h4>	
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span (click)="funclosereg('modelreg','modellogin')">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                               
+                                
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="email" [(ngModel)]="txtemail" placeholder="Email" required="required">		
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" [(ngModel)]="txtusername" placeholder="Username" required="required">		
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password" [(ngModel)]="txtpassword" placeholder="Password" required="required">	
+                                    </div>  
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="mobile" [(ngModel)]="txtmobile" placeholder="Phone number.." required="required">		
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="Address" [(ngModel)]="txtaddress" placeholder="Address" required="required">		
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="pincode" [(ngModel)]="txtpincode" placeholder="PinCode..." required="required">		
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="state" [(ngModel)]="txtstate" placeholder="State.." required="required">	
+                                    </div>      
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn" (click)="funInsReg()">SignUp</button>
+                                    </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary btn-lg btn-block login-btn" (click)="funopenlogin()">Login Here</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>     
+            

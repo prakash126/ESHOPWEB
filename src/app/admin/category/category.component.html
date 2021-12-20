@@ -1,0 +1,48 @@
+<br>
+<mat-form-field style="width: 100%;">
+<input type="text" autocomplete="off"  placeholder="Category Name" 
+matInput [(ngModel)]="txtcat">
+</mat-form-field>
+<br>
+<button mat-raised-button  color="primary" (click)="funInsCat()">Insert Catrgory </button>
+<!-- <br><br>
+{{temp}} -->
+<br><br>
+<table class='table table-hover'>
+    <!-- <th>Object Id</th> -->
+    <th>Category Name</th>
+    <th>Active Status</th>
+    <th>Operations</th>
+    <tr *ngFor="let cat of data_category | paginate:{itemsPerPage:3,currentPage:cp}">
+        
+            <ng-container *ngIf="temp!=cat._id;else elsetemp">
+                <!-- <td>{{cat._id}}</td> -->
+        
+                <td>{{cat.catname}}</td>
+                <td>
+                <span *ngIf="cat.active==1">Active</span>
+                <span *ngIf="cat.active==0">InActive</span>
+                </td>
+                <td>
+                    <input type="button" value="Update" class="btn btn-success" (click)="funUpdate(cat)">
+                   
+                </td>
+            </ng-container>
+    </tr>
+    <ng-template #elsetemp>
+        <td></td>
+        <td><input type="text" style="width:150px" 
+           class="form-control" [(ngModel)]="txtcatnew"></td>
+        <td><select class="form-control" [(ngModel)]="drpactive">
+           <option value="1">Active</option>
+           <option value="0">Inactive</option>
+        </select></td>
+        <td>
+            <input type="button" value="Save" (click)="funCatsave()" class="btn btn-info">
+            &nbsp;&nbsp;
+            <input type="button" value="Close" class="btn btn-secondary" (click)="temp=0">
+        </td>
+       </ng-template>
+</table>
+
+<pagination-controls (pageChange)="cp=$event"></pagination-controls>

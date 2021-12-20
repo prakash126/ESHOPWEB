@@ -1,0 +1,127 @@
+
+<div class="container">
+    <form method="post" id="frm1" action="http://localhost:1000/productpath/insertproductimg" enctype="multipart/form-data"> 
+    <h2 style="text-align: center;"> Enter Product Details</h2>
+    <input type="text" class="form-control" name="txtproduct" [(ngModel)]="txtproduct" placeholder="Enter Product">
+<br><br>
+    <div class="row border">
+        <div class="col-lg-6 col-sm-12 border1">
+    
+            <div>
+                <label>Select Category</label>
+                <select (change)="funCatChange()" [(ngModel)]="drpcat" class="form-control">
+                    
+                    <option *ngFor="let cat of data_category" value="{{cat._id}}" name="drpcat">
+                        {{cat.catname}}
+                    </option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="">Select Subcategory</label>
+                <select (change)="funSubCatChange()" [(ngModel)]="drpsubcat" class="form-control">
+                    <ng-container *ngFor="let subcat of subcat_data">
+                    <option *ngIf="subcat.catid==drpcat" value="{{subcat._id}}" name="drpsubcat">
+                        {{subcat.subcatname}}
+                    </option>
+                </ng-container>
+                </select>
+            </div>
+            
+            <br>
+            <div>
+                <label for="">Select Subsubcategory</label>
+                <select class="form-control" [(ngModel)]="drpsubsubcat">
+                    <ng-container *ngFor="let subsubcat of subsubcat_data">
+                        <option *ngIf="drpsubcat==subsubcat.subcatid" value="{{subsubcat._id}}" name="drpsubsubcat">
+                            {{subsubcat.subsubcatname}}
+                        </option>
+                    </ng-container>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="">Select Brand</label>
+                <select class="form-control" [(ngModel)]="drpbrand">
+                    <ng-container *ngFor="let brand of brand_data">
+                        <option value="{{brand._id}}" name="drpbrand">{{brand.bname}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <br>
+               <div>
+                   <label for="">Select Color</label>
+                    <input type="color" multiple="true"  class="form-control" name="pcolor" [(ngModel)]="pcolor">
+               </div>
+               <br>
+               <div>
+                <label for="">Enter OldPrice</label>
+                <input type="number" placeholder="Enter old Price" name="oldprice" [(ngModel)]="oldprice" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label for="">Enter NewPrice</label>
+                <input type="number" placeholder="Enter new Price" name="newprice" [(ngModel)]="newprice" class="form-control">
+            </div>
+            
+        </div>
+    
+    
+        <div class="col-lg-6 col-sm-12">
+
+            <div>
+                <label for="">Enter Quantity</label>
+                <input type="number" placeholder="Enter Quantity" name="quantity" [(ngModel)]="quantity" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label for="">Enter Description</label>
+                <textarea name="txtarea" [(ngModel)]="txtarea" class="form-control" rows="2" cols="20"></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="">Give Rating</label>
+                <input type="number" placeholder="Rating......." name="rating" [(ngModel)]="rating" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label for="">Enter Offer</label>
+                <input type="number" placeholder="Enter Offer" name="offer" [(ngModel)]="offer" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label for="">Enter Size</label>
+                <input type="number" placeholder="Enter Size" name="psize" [(ngModel)]="psize" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label>Select Product Type</label>
+                <select class="form-control" [(ngModel)]="txtptype">
+                    <option>Upcoming Product</option>
+                    <option>Present Selling Product</option>
+                </select>
+            </div>
+
+            <br>
+            <div>
+                <label for="">Choose Files</label>
+                <input type="file" multiple="true" name="f1" class="form-control">
+            </div>   
+        </div>
+    </div>
+    <br>
+    <button type="submit" (click)="funsubmit()" class="btn btn-primary form-control">Add Product</button>
+    </form>
+</div>
+
+
+    <h1 class="text-warning text-center mt-5 text-underlined"><u>Product Details</u></h1>
+    <ag-grid-angular [rowData]="product_data" [columnDefs]="coldata" class="ag-theme-alpine" style="widows: 100%;;height:400px;">
+
+    </ag-grid-angular>
+
+
+
+
+
+

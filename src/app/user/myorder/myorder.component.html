@@ -1,0 +1,84 @@
+<!-- {{odata | json}} -->
+
+<div class="container-fluid">
+    <div id="backc">
+        <h1 class="text-center text-secondary font-italic mt-5 p-2">Your Order Details</h1><hr>
+    </div>
+    <div class="row">
+        <div class="col-12" >
+            <div *ngFor="let odts of odata" id="box">
+                <div class="row" >
+                    <!-- fst column start-->
+                     <ng-container *ngFor="let opdt of odts.proddata">
+                        <div  style="margin: 20px;">
+                            <img style="width: 280px; height: 250px;" src="../../../assets/product_images/{{opdt.pimage[0]}}" class="img-fluid">
+                        </div>
+                     
+                    <!-- fst column end-->
+                    <!-- second column start-->
+                    <div class="col-sm-6 col-md-3 col-lg-5" style="margin: 30px 0 0 180px">
+                        <h2>Hi {{odts.username}}</h2>
+                        <h3 style="font-size: larger;font-weight: bold;">Your Product: {{opdt.pname | titlecase}}</h3> 
+
+                        <h5 style="color: rgb(230, 75, 75);">{{opdt.newprice | currency: "INR"}} &nbsp;
+                            <span  style="color: black; opacity: 0.5; font-size: 18px;">
+                            <s>{{opdt.oldprice | currency :"INR"}}</s>  
+                        </span></h5>
+
+                        <!-- <span [ngStyle]="{color:dt.pcolor, backgroundColor:dt.pcolor}">{{dt.pcolor}}</span>
+
+                        <h5>Size:&nbsp;{{dt.size}}</h5> -->
+                        <div class="row">
+                            <div class="col-sm-1">
+                            <p id="rate">{{opdt.rating}}&nbsp;<i class="fa fa-star"></i></p>
+                            </div>&nbsp;&nbsp;&nbsp;     
+                            
+                            
+                        </div>
+                        <h2>Order Status: {{odts.orderStatus}}</h2>
+                        <!-- //////////////////// product quantity code //////////// -->
+                        
+                        
+
+                        <!-- //////////////////// product quantity code end//////////// -->
+
+                            <!-- <div class="row">
+                                <div class="col-sm-8 col-md-6 col-lg-4"> 
+                            <button mat-raised-button color="accent" id="order">PLACE ORDER</button>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8 col-md-6 col-lg-5">
+                            <button mat-raised-button color="accent" id="remove" (click)="funRemoveItem(ind)">REMOVE</button>
+                            </div>
+                            </div>
+
+                    </div>           -->
+
+            <!-- second column end-->
+                    </div>
+                     </ng-container>
+                     
+                </div>
+                <div >
+                    <!-- <h3>{{ name}}</h3> -->
+                    <!-- <ng-container *ngFor="let dt of orderData"> -->
+                        <div style="margin: 40px 0 50px 200px;">
+                            <ng-container *ngFor="let item of counts" >
+                                <span style="width: 100%;margin-right: 174px;">{{item}}</span>
+                            </ng-container><br>
+                        
+                          <ng-container *ngFor="let item of counts;let i = index" >
+                            <!-- <h1>{{orderStatus}}</h1> -->
+                            <span class="circles" [class.active]="odts.orderStatus == item"></span>
+                            <span class="bar" *ngIf="(i != counts.length-1)"></span>
+                          </ng-container>
+                        </div>
+                    <!-- </ng-container> -->
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

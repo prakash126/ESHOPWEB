@@ -1,0 +1,157 @@
+/* #box{
+    background-color: #ffffff; padding-top: 40px; margin-bottom: 20px;
+        box-shadow: 0px 0px 4px rgba(0, 0,0, 0.5); min-height: 300px; width: 80%;
+        overflow: hidden; border-radius: 0px;
+}
+
+
+
+#order{
+    background-color: #FB641B; 
+    font-size: 14px; font-weight: bold; text-align: center; 
+    
+    font-family: Roboto,Arial,sans-serif; 
+    padding: 5px 18px;  border-radius: 0px;
+    outline: none;
+}
+
+#remove{
+    background-color: #e71b1b; 
+    font-size: 14px; font-weight: bold; text-align: center; 
+    
+    font-family: Roboto,Arial,sans-serif; 
+    padding: 5px 18px;  border-radius: 0px; 
+    outline: none;
+}
+
+#rate{
+    background-color: forestgreen; 
+                color: white; 
+                width: 54px; 
+                font-weight: bold;
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+}
+#delete{
+        background-color: #FB641B; 
+        font-size: 16px; font-weight: bold; text-align: center; 
+        font-family: Roboto,Arial,sans-serif; 
+        padding: 5px 20px; 
+        margin-bottom: 15px; 
+        outline: none;
+}
+#up:hover{
+        box-shadow: 0px 0px px #047BD5;
+        border-radius: 50%;
+}
+
+#down:hover{
+    box-shadow: 0px 0px 5px #047BD5;
+    border-radius: 50%;
+}
+
+#remove{
+    background-color: #FB641B; 
+    font-size: 16px; font-weight: bold; text-align: center; 
+    font-family: Roboto,Arial,sans-serif; 
+    outline: none;
+    border-radius: 0px;
+    color: white;
+}
+
+#close{
+    background-color: #047BD5; 
+    font-size: 16px; font-weight: bold; text-align: center; 
+    font-family: Roboto,Arial,sans-serif; 
+    border-radius: 0px;
+    color:white;
+    
+}
+
+.nocart{
+    background-color: #ffffff; padding-top: 40px; margin-bottom: 20px;
+        box-shadow: 0px 0px 4px rgba(0, 0,0, 0.5); min-height: 300px; width: 100%;
+        overflow: hidden; border-radius: 0px;display: hidden;
+} */
+
+#box{
+    background-color: #ffffff; padding-top: 40px; margin-bottom: 20px;
+        box-shadow: 0px 0px 4px rgba(0, 0,0, 0.5); min-height: 300px; width: 100%;
+        overflow: hidden; border-radius: 0px;
+}
+
+/* #vl {
+    border-right: 1px solid #878787;
+    min-height: 300px;
+  } */
+
+#order{
+    background-color: #FB641B; 
+    font-size: 14px; font-weight: bold; text-align: center; 
+    
+    font-family: Roboto,Arial,sans-serif; 
+    padding: 5px 18px;  border-radius: 0px;
+    outline: none;
+}
+
+#remove{
+    background-color: #e71b1b; 
+    font-size: 14px; font-weight: bold; text-align: center; 
+    
+    font-family: Roboto,Arial,sans-serif; 
+    padding: 5px 18px;  border-radius: 0px; 
+    outline: none;
+}
+
+#rate{
+    background-color: forestgreen; 
+                color: white; 
+                width: 54px; 
+                font-weight: bold;
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+}
+#delete{
+        background-color: #FB641B; 
+        font-size: 16px; font-weight: bold; text-align: center; 
+        font-family: Roboto,Arial,sans-serif; 
+        padding: 5px 20px; 
+        margin-right: 500px;
+        margin-bottom: 15px; 
+        outline: none;
+}
+#up:hover{
+        box-shadow: 0px 0px 10px #047BD5;
+        border-radius: 50%;
+}
+
+#down:hover{
+    box-shadow: 0px 0px 10px #047BD5;
+    border-radius: 50%;
+}
+
+#remove{
+    background-color: #FB641B; 
+    font-size: 16px; font-weight: bold; text-align: center; 
+    font-family: Roboto,Arial,sans-serif; 
+    outline: none;
+    border-radius: 0px;
+    color: white;
+}
+
+#close{
+    background-color: #047BD5; 
+    font-size: 16px; font-weight: bold; text-align: center; 
+    font-family: Roboto,Arial,sans-serif; 
+    border-radius: 0px;
+    color:white;
+    
+}
+
+.nocart{
+    background-color: #ffffff; padding-top: 40px; margin-bottom: 20px;
+        box-shadow: 0px 0px 4px rgba(0, 0,0, 0.5); min-height: 300px; width: 100%;
+        overflow: hidden; border-radius: 0px;display: hidden;
+}

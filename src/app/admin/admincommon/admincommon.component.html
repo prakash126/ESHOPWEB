@@ -1,0 +1,44 @@
+
+<mat-drawer-container style="min-height: 600px;" [hasBackdrop]="true">
+    <mat-drawer #dr1 style="background-color: darkcyan; width: 150px;">
+        <div style="background-color: darkgray; color: black;height: 50px;padding: 10px;">Admin Pannel</div>
+        <a routerLink="cat">Category</a>
+        <a routerLink="subcat">Subcategory</a>
+        <a routerLink="subsubcat">SubSubCategory</a>
+        <a routerLink="brand">Brand</a>
+        <a routerLink="products">ProductsPage</a>
+    </mat-drawer>
+        
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <mat-icon style="color: whitesmoke;cursor: pointer;" (click)="dr1.toggle()">view_headline
+            </mat-icon>
+            
+        &nbsp;
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="mn">
+            Orders
+        </button>
+        &nbsp;
+        <!-- <button mat-raised-button color="primary" [matMenuTriggerFor]="mn">
+            Orders
+        </button> -->
+        
+        <mat-menu #mn="matMenu">
+            <button mat-menu-item routerLink="orderdetails">All Orders</button>
+            <!-- <button mat-menu-item>Monthly Orders</button>
+            <button mat-menu-item>Yearly Orders</button> -->
+        </mat-menu>
+        <!-- {{ser.login_check}} -->
+        <button mat-button routerLink="logout" *ngIf="ser.login_check">Logout</button>
+        <button mat-button routerLink="login" *ngIf="!ser.login_check">Login</button>
+
+    </mat-toolbar>
+        <br>
+
+        <div class="container">
+            <div style="color: red;">{{log_messages}}</div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+    
+</mat-drawer-container>

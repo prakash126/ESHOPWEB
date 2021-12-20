@@ -1,0 +1,46 @@
+<div class="container-fluid" style="margin-bottom: 5px;margin-top: 10px;">
+    <div class="row" *ngFor="let product of product_info">
+        <div class="col-sm-12 col-lg-1" style="overflow-block: scroll;">
+            <span *ngFor="let image of product.pimage" style="list-style:none;">
+                <img style="width:150px;height:80px;cursor:pointer" (click)="imgbig=image" 
+                class="rounded img-thumbnail" src="../../../assets/product_images/{{image}}" />
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <img  id="imgbig"   src="../../../assets/product_images/{{imgbig}}" class="img-fluid"/>
+            <button mat-raised-button color="accent" id="buy" style="margin-top: 10px; width: 400px; margin-left: 5px;">
+                <mat-icon>notifications_active</mat-icon>&nbsp;NOTIFY ME
+            </button>
+          </div>
+          <div class="col-sm-6">
+             <h3>{{product.pname | titlecase}}</h3>
+             
+             <span [ngStyle]="{color:product.pcolor,backgroundColor:product.pcolor}">{{product.pcolor}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+             <span style="background-color: green;color: white;padding: 4px;border-radius: 2px;">{{product.rating}}<i class="fa fa-star"></i></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+             <span style="background-color: tomato;padding:5px; color: white;font-weight: bolder;">Brand:&nbsp;{{bname | uppercase}}</span>
+             <br><br>
+             <span style="color:rgb(228, 10, 10);">{{product.newprice | currency:'INR'}}</span>
+             &nbsp;
+             <span class="text-muted"><s>{{product.oldprice | currency:'INR'}}</s></span>
+                &nbsp;&nbsp;
+                <span><img src="../../assets/fk.png" alt="" class="img-fluid" style="width: 120px;height: 22px; border-radius: 10px;"></span>
+             <p class="text-muted" style="text-align: justify;"><br>{{product.description}}<p>
+                
+                <li *ngFor="let offer of alloffers" style="list-style:none;" class="text-muted">
+                    <img src="../../../assets/offer3.jpg" width="50px"/>
+                    {{offer}}
+                </li>
+                <br>
+                <button mat-raised-button color="primary" (click)="funAddToCart(product)" id="cart">
+                    <mat-icon>shopping_cart</mat-icon>&nbsp;ADD TO CART
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <button mat-raised-button color="accent" id="buy">
+                    <mat-icon>flash_on</mat-icon>&nbsp;BUY NOW
+                </button> -->
+          </div>
+    </div>
+</div>
+
+
+<!-- <img src="../../../assets/product_images/15973106509132.jpg" alt="" srcset=""> -->

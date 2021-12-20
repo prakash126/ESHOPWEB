@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile_nav" aria-controls="mobile_nav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span> 
+      </button>
+      <div class="collapse navbar-collapse" id="mobile_nav">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-md-right">
+      </ul>
+      <ul class="navbar-nav navbar-light">
+          <!--========-->
+          <li class="nav-item dropdown megamenu-li dmenu" *ngFor="let cat of var_category">
+              <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             {{cat.catname}}
+              </a>
+              <div class="dropdown-menu megamenu sm-menu border-top" aria-labelledby="dropdown01">
+                  <div class="row">
+                      <ng-container  *ngFor="let subcat of var_subcat">
+
+                      <div class="col-sm-6 col-lg-3 border-right mb-4" 
+                       *ngIf="subcat.catid==cat._id">
+                          <h6 >
+                              {{subcat.subcatname}}</h6>
+                          
+                          <div *ngFor="let subsubcat of var_subsubcat">
+
+                             <a class="dropdown-item" [routerLink]="['product',{subsubid:subsubcat._id}]" *ngIf="subsubcat.subcatid==subcat._id"><i class="fab fa-windows"></i> {{subsubcat.subsubcatname}}</a>
+                          </div>        
+                    </div>
+                  </ng-container>
+
+                  </div>
+              </div>
+          </li>
+          <!--=========-->
+         
+      </ul>
+      </div>
+  </div>
+</nav>
+
+

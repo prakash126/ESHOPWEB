@@ -1,0 +1,74 @@
+<!-- <p>subcategory works!</p>
+{{cat_data}}
+<br><br>
+{{subcat_data}}
+<br><br> -->
+
+<br><br>
+<mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Subcategory Data</mat-label>
+    <input type="text" matInput autocomplete="off" [(ngModel)]="txtsubcat">
+</mat-form-field>
+
+<mat-form-field style="width: 100%;">
+    <mat-label>Select Category</mat-label>
+    <mat-select [(ngModel)]="drpcat">
+        <mat-option *ngFor="let cat of cat_data" value="{{cat._id}}">
+            {{cat.catname}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="warn" (click)="funInsSubcat()">Insert SubCat</button>
+<br>
+<!-- {{temp}} -->
+<br><br>
+<table class='table table-striped'>
+    <th>Subcategory Object Id</th>
+    <th>Subcategory Name</th>
+    <th>Category Object Id</th>
+    <th>Category Name</th>
+    <tr *ngFor="let subcatdata of subcat_data | paginate:{itemsPerPage:3,currentPage:cp}">
+        <ng-container *ngIf="temp!=subcatdata._id; else elsetemp">
+            <td>{{subcatdata._id}}</td>
+            <td>{{subcatdata.subcatname}}</td>
+            <td>{{subcatdata.catid}}</td>
+            <td>{{subcatdata.catdata.catname}}</td>
+            <td>
+                <button mat-mini-fab color="primary" style="outline: none;" (click)="funEditSubcat(subcatdata)">
+                    <i class="fa fa-edit"></i>
+                </button>
+            </td>
+        </ng-container>
+       
+    </tr>
+    
+</table>
+
+<ng-template #elsetemp>
+    <td></td>
+    <td>
+        <input type="text" [(ngModel)]="tsubcat" class="form-control">
+    </td>
+    <td></td>
+    <td>
+        <select class="form-control" [(ngModel)]="drpcat2">
+            <option *ngFor="let catdata of cat_data" value="{{catdata._id}}">
+                {{catdata.catname}}
+            </option>
+        </select>
+    </td>
+    <td>
+        <button mat-mini-fab color="accent" style="outline: none;background-color: green;" (click)="funSave()">
+            <i class="fa fa-save"></i>
+        </button>
+    </td>
+    &nbsp;
+    <td>
+        <button mat-mini-fab color="warn" style="outline: none;" (click)="temp=0">
+            <i class="fa fa-close"></i>
+        </button>
+    </td>
+</ng-template>
+
+<pagination-controls (pageChange)="cp=$event"></pagination-controls>

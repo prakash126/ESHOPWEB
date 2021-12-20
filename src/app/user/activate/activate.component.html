@@ -1,0 +1,13 @@
+<div class="container">
+    <div style="margin: auto;">
+        <div class="text-center m-4" *ngIf="account_activated">
+                
+            <img src="../../../assets/payment/success.png" alt="" srcset="" width="400px" height="300px">
+            <h3 >Account Activated</h3>  <br>
+            <h4>Username : {{username}}</h4>
+            <h4>Your Email : {{email}}</h4>
+            <br>
+            <input type="button" value="Continue Shopping" class="btn btn-lg btn-primary p-3" routerLink="/us">
+        </div>
+    </div>
+</div>

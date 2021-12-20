@@ -1,0 +1,18 @@
+#cart {
+  background-color: #ff9f00;
+  font-size: 16px;
+  text-align: center;
+}
+
+#buy {
+  background-color: #fb641b;
+  font-size: 16px;
+  text-align: center;
+  font-family: Roboto, Arial, sans-serif;
+  width: 200px;
+  height: 40px;
+}
+
+#imgbig {
+  max-height: 500px;
+}
